@@ -4,7 +4,7 @@
 #
 if banner.txt exist cat banner.txt
 #
-echo ; echo 'Enter whatever user name you want!' ; echo
+echo ; echo 'Enter whatever username you want!' ; echo
 #
 # Login:
 #
@@ -24,5 +24,11 @@ diralias sys a0:
 #
 echo
 echo Hi $USER welcome to SamaruX!
+echo
+echo Current command aliases:
+alias
+echo
+echo Current directory aliases:
+diralias
 echo
 

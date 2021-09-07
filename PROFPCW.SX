@@ -5,6 +5,10 @@
 if banner.txt not exist goto Login
 cat banner.txt
 echo
+echo SamaruX Start-Up sample for the Amstrad PCW.
+echo
+echo Available usernames are: Miguel.
+echo
 #
 # Login:
 #
@@ -37,5 +41,11 @@ env COLUMNS 90
 env PROMPT [%u@%w] %$
 echo
 echo Hi $USER welcome to SamaruX!
+echo
+echo Current command aliases:
+alias
+echo
+echo Current directory aliases:
+diralias
 echo
 
