@@ -43,6 +43,7 @@
 	09 Mar 2015 : 1.07 : Default type for file name.
 	14 Jun 2016 : 1.08 : Increased BATCH_LINES to 72.
 	19 Jun 2016 : 1.09 : Added BatchShift() for shift command.
+	07 Sep 2021 : 1.10 : Typo in error message.
 */
 
 #define SX_BATCH
@@ -65,7 +66,7 @@ int argc, argv[];
 
 	/* Nexted batch? */
 	if(sv_batch == BATCH_MAX)
-		return Error("Too much nexted batch commands");
+		return Error("Too many nexted batch commands");
 
 	/* Check arguments */
 	if(argc < 2 || argc > 11)
