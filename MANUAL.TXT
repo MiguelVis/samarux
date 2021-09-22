@@ -31,13 +31,9 @@ CP/M is a registered trademark of Digital Research Inc.
 Z80 is a registered trademark of Zilog.
 Unix is a registered trademark of The Open Group.
 
-This manual covers SamaruX version 2.07 / 18 Dec 2016
+This manual covers SamaruX version 2.07 / 21 Sep 2021
 
 === oOo ===
-
-+-------------------+
-| TABLE OF CONTENTS |
-+-------------------+
 
 CHAPTER 1 : INTRODUCTION
             1.01 : SamaruX
@@ -48,15 +44,16 @@ CHAPTER 2 : ENVIRONMENT
             2.03 : File and directory names
             2.04 : Profiling the shell
             2.05 : Terminal settings
+            2.06 : Compiling SamaruX and its commands
 
-CHAPTER 3 : BUILT-IN COMMANDS
+CHAPTER 3 : COMMANDS
             3.01 : alias - Manage command aliases
             3.02 : ascii - Print the character table
             3.03 : batch - Execute commands from a file
             3.04 : builtin - Print the internal command names
             3.05 : cat - Concatenate files
             3.06 : cd - Change the current working directory
-            3.07 : chmod - Change file modes
+            3.07 : chmod - Change file modes (CP/M attributes)
             3.08 : clear - Clear the console
             3.09 : cp - Copy files
             3.10 : cpm - Execute CP/M commands
@@ -68,32 +65,34 @@ CHAPTER 3 : BUILT-IN COMMANDS
             3.16 : ed - Edit small text files
             3.17 : env - Manage environment variables
             3.18 : exit - Quit the shell
-            3.19 : false - Return false.
-            3.20 : fortune - Print a random fortune.
-            3.21 : goto - Jump to label in batch mode
-            3.22 : grep - Find text patterns in files
-            3.23 : head - Print first lines from files
-            3.24 : history - Manage command line history
-            3.25 : if - Test condition
-            3.26 : ls - List files
-            3.27 : man - Print manual pages
-            3.28 : mem - Print memory usage
-            3.29 : more - Print the contents of text files
-            3.30 : mv - Rename files
-            3.31 : pwd - Print the current working directory
-            3.32 : read - Read a line from standard input
-            3.33 : rm - Remove files
-            3.34 : shift - Shift positional parameters to the left
-            3.35 : sleep - Suspend execution
-            3.36 : sort - Sort text lines
-            3.37 : tail - Print last lines from files
-            3.38 : tee - Duplicate the standard input
-            3.39 : true - Return true.
-            3.40 : tty - Return user's terminal name.
-			3.41 : type - Print information about command type.
-            3.42 : ver - Print CP/M version and facts
-            3.43 : wc - Count newlines, words and characters
-            3.44 : whoami - Print the user name
+            3.19 : expr - Compute simple expressions
+            3.20 : false - Return false
+            3.21 : fortune - Print a random adage
+            3.22 : goto - Jump to label in batch mode
+            3.23 : grep - Find text patterns in files
+            3.24 : head - Print first lines from files
+            3.25 : history - Manage command line history
+            3.26 : if - Test condition
+            3.27 : ls - List files
+            3.28 : man - Print manual pages
+            3.29 : mem - Print memory usage
+            3.30 : more - Print the contents of text files
+            3.31 : mv - Rename files
+            3.32 : ps - Print running commands
+            3.33 : pwd - Print the current working directory
+            3.34 : read - Read a line from standard input
+            3.35 : rm - Remove files
+            3.36 : shift - Shift positional parameters to the left
+            3.37 : sleep - Suspend execution for a specified time
+            3.38 : sort - Sort text lines
+            3.39 : tail - Print last lines from files
+            3.40 : tee - Copy standard input to standard output
+            3.41 : true - Return true
+            3.42 : tty - Return terminal name
+            3.43 : type - Print information about command type
+            3.44 : ver - Print SamaruX and CP/M versions and facts
+            3.45 : wc - Count newlines, words and characters
+            3.46 : whoami - Print the user name
 
 === oOo ===
 
@@ -108,9 +107,9 @@ CHAPTER 3 : BUILT-IN COMMANDS
 NAME
 	SamaruX - Unix-like shell for CP/M systems
 	
-	(c) 2014, 2015 FloppySoftware, Valencia, Spain
-	www.floppysoftware.es
-	cpm-connections.blogspot.com
+	(c) 2007-2021 FloppySoftware, Valencia, Spain
+	http://www.floppysoftware.es
+	https://cpm-connections.blogspot.com/
 	floppysoftware@gmail.com
 
 SYNOPSIS
@@ -492,7 +491,7 @@ NOTES
 === oOo ===
 
 +-----------+
-| CHAPTER 3 |  BUILT-IN COMMANDS
+| CHAPTER 3 |  COMMANDS
 +-----------+
 
 +--------------+
@@ -1028,7 +1027,40 @@ EXAMPLES
 	exit
 
 +--------------+
-| SECTION 3.19 |  false
+| SECTION 3.19 |  expr
++--------------+
+
+NAME
+	expr - Compute simple expressions
+
+SYNOPSIS
+	expr number1 operator number2
+
+DESCRIPTION
+	The command expr computes a simple expression and
+	outputs the result to the console.
+	
+	The numbers and the result are 16 bit signed integers,
+	from -32,768 to +32,767.
+	
+	Valid operators are:
+	
+	add -- add two numbers
+	sub -- subtract two numbers
+	mul -- multiply two numbers
+	div -- divide two numbers
+	mod -- remainder after divide two numbers
+
+OPTIONS
+	None.
+
+EXAMPLES
+	expr 1 add 3  = Prints 4
+	expr 5 add -1 = Prints 4
+	expr 5 sub 1  = Prints 4
+
++--------------+
+| SECTION 3.20 |  false
 +--------------+
 
 NAME
@@ -1047,7 +1079,7 @@ EXAMPLES
 	false
 
 +--------------+
-| SECTION 3.20 |  fortune
+| SECTION 3.21 |  fortune
 +--------------+
 
 NAME
@@ -1071,7 +1103,7 @@ EXAMPLES
 	fortune jokes.txt
 
 +--------------+
-| SECTION 3.21 |  goto
+| SECTION 3.22 |  goto
 +--------------+
 
 NAME
@@ -1098,7 +1130,7 @@ EXAMPLES
 	6: # Cont:
 
 +--------------+
-| SECTION 3.22 |  grep
+| SECTION 3.23 |  grep
 +--------------+
 
 NAME
@@ -1125,7 +1157,7 @@ EXAMPLES
 	grep -i Elvis bio.txt story.txt article.doc
 
 +--------------+
-| SECTION 3.23 |  head
+| SECTION 3.24 |  head
 +--------------+
 
 NAME
@@ -1151,7 +1183,7 @@ EXAMPLES
 	head myapp.c
 
 +--------------+
-| SECTION 3.24 |  history
+| SECTION 3.25 |  history
 +--------------+
 
 NAME
@@ -1180,7 +1212,7 @@ EXAMPLES
 	history     = Prints all the history entries
 
 +--------------+
-| SECTION 3.25 |  if
+| SECTION 3.26 |  if
 +--------------+
 
 NAME
@@ -1213,7 +1245,7 @@ NOTES
 	The command if it's very useful in batch mode.
 
 +--------------+
-| SECTION 3.26 |  ls
+| SECTION 3.27 |  ls
 +--------------+
 
 NAME
@@ -1244,7 +1276,7 @@ EXAMPLES
 	ls -sv myfile.c m00:myfile.h myfile.zsm
 
 +--------------+
-| SECTION 3.27 |  man
+| SECTION 3.28 |  man
 +--------------+
 
 NAME
@@ -1291,7 +1323,7 @@ EXAMPLES
 	man wp fi     -- Print fi topic help in wp.man
 
 +--------------+
-| SECTION 3.28 |  mem
+| SECTION 3.29 |  mem
 +--------------+
 
 NAME
@@ -1308,7 +1340,7 @@ OPTIONS
 	None.
 
 +--------------+
-| SECTION 3.29 |  more
+| SECTION 3.30 |  more
 +--------------+
 
 NAME
@@ -1338,7 +1370,7 @@ EXAMPLES
 	more -24 file.txt letter.doc
 
 +--------------+
-| SECTION 3.30 |  mv
+| SECTION 3.31 |  mv
 +--------------+
 
 NAME
@@ -1361,7 +1393,26 @@ NOTES
 	or rename directories.
 
 +--------------+
-| SECTION 3.31 |  pwd
+| SECTION 3.32 |  ps
++--------------+
+
+NAME
+	ps - Print running commands
+
+SYNOPSIS
+	ps
+
+DESCRIPTION
+	The command ps prints the running commands.
+
+OPTIONS
+	None.
+
+EXAMPLES
+	ps
+
++--------------+
+| SECTION 3.33 |  pwd
 +--------------+
 
 NAME
@@ -1381,7 +1432,7 @@ EXAMPLES
 	pwd
 
 +--------------+
-| SECTION 3.32 |  read
+| SECTION 3.34 |  read
 +--------------+
 
 NAME
@@ -1403,7 +1454,7 @@ EXAMPLES
 	echo Hello $USER !!!
 
 +--------------+
-| SECTION 3.33 |  rm
+| SECTION 3.35 |  rm
 +--------------+
 
 NAME
@@ -1436,7 +1487,7 @@ EXAMPLES
 	rm -fi A02:*.bak
 
 +--------------+
-| SECTION 3.34 |  shift
+| SECTION 3.36 |  shift
 +--------------+
 
 NAME
@@ -1464,7 +1515,7 @@ EXAMPLES
 	  $# = 2, $1 = two, $2 = three
 
 +--------------+
-| SECTION 3.35 |  sleep
+| SECTION 3.37 |  sleep
 +--------------+
 
 NAME
@@ -1487,7 +1538,7 @@ NOTES
 	Needs CP/M version 3.
 
 +--------------+
-| SECTION 3.36 |  sort
+| SECTION 3.38 |  sort
 +--------------+
 
 NAME
@@ -1514,7 +1565,7 @@ EXAMPLES
 	sort -n myprog.bas
 
 +--------------+
-| SECTION 3.37 |  tail
+| SECTION 3.39 |  tail
 +--------------+
 
 NAME
@@ -1540,7 +1591,7 @@ EXAMPLES
 	tail myapp.c
 
 +--------------+
-| SECTION 3.38 |  tee
+| SECTION 3.40 |  tee
 +--------------+
 
 NAME
@@ -1561,7 +1612,7 @@ EXAMPLES
 	cat profile.sx | tee profile.bak
 
 +--------------+
-| SECTION 3.39 |  true
+| SECTION 3.41 |  true
 +--------------+
 
 NAME
@@ -1580,11 +1631,11 @@ EXAMPLES
 	true
 
 +--------------+
-| SECTION 3.40 |  tty
+| SECTION 3.42 |  tty
 +--------------+
 
 NAME
-	tty - Return user's terminal name
+	tty - Return terminal name
 
 SYNOPSIS
 	tty
@@ -1606,7 +1657,7 @@ EXAMPLES
 	tty
 
 +--------------+
-| SECTION 3.41 |  type
+| SECTION 3.43 |  type
 +--------------+
 
 NAME
@@ -1631,7 +1682,7 @@ EXAMPLES
 	type -t cp mv ls
 
 +--------------+
-| SECTION 3.42 |  ver
+| SECTION 3.44 |  ver
 +--------------+
 
 NAME
@@ -1651,7 +1702,7 @@ EXAMPLES
 	ver
 
 +--------------+
-| SECTION 3.43 |  wc
+| SECTION 3.45 |  wc
 +--------------+
 
 NAME
@@ -1683,7 +1734,7 @@ NOTES
 	The CR ('\r') characters will not be counted.
 
 +--------------+
-| SECTION 3.44 |  whoami
+| SECTION 3.46 |  whoami
 +--------------+
 
 NAME
@@ -1701,4 +1752,4 @@ OPTIONS
 EXAMPLES
 	whoami
 
-
+

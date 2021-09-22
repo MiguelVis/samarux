@@ -1,6 +1,6 @@
 # mk_doc.sx - Make the SamaruX printed manual
 #
-# Last edited: 03 Sep 2015
+# Last edited: 19 Sep 2021
 #
 # Use: batch mk_doc.sx dest_file formfeed version date
 # Ex.: batch mk_doc.sx man130.txt on '1.30' '08 Mar 2015'
@@ -16,6 +16,7 @@ goto end
 # make:
 #
 echo Making MANUAL for Vn. $3 / $4
+#
 echo > nl.tmp
 cp mk_ff.txt chapsep.tmp
 cp mk_ff.txt sectsep.tmp
@@ -27,10 +28,10 @@ echo > sectsep.tmp
 # make2:
 #
 batch mk_cover.sx cover.tmp $3 $4
-batch mk_toc.sx toc.tmp
-batch mk_chap1.sx ch1.tmp
-batch mk_chap2.sx ch2.tmp
-batch mk_chap3.sx ch3.tmp
+batch mk_toc.sx
+batch mk_chap1.sx
+batch mk_chap2.sx
+batch mk_chap3.sx
 #
 cat cover.tmp toc.tmp ch1.tmp ch2.tmp ch3.tmp > $1
 #

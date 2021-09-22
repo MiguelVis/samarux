@@ -1,17 +1,10 @@
 # mk_chap2.sx - Make the chaper 2 for the SamaruX printed manual
 #
-# Last edited: 08 Mar 2015
+# Last edited: 19 Sep 2021
 #
-# Use: batch mk_chap2.sx dest_file
-# Ex.: batch mk_chap2.sx chap1.txt
+# Use: batch mk_chap2.sx
 #
 echo Making CHAPTER 2
-#
-if $# eq 1 goto make
-echo Error in # of args.
-goto end
-#
-# make:
 #
 batch mk_chtit.sx ct2.tmp '2' 'ENVIRONMENT'
 batch mk_sect.sx s201.tmp '2.01' 'Command line' command
@@ -21,6 +14,5 @@ batch mk_sect.sx s204.tmp '2.04' 'Profiling the shell' profile
 batch mk_sect.sx s205.tmp '2.05' 'Terminal settings' terminal
 batch mk_sect.sx s206.tmp '2.06' 'Compiling SamaruX and its commands' compile
 #
-cat ct2.tmp s201.tmp s202.tmp s203.tmp s204.tmp s205.tmp s206.tmp nl.tmp > $1
-#
-# end:
+cat nl.tmp >> toc.tmp
+cat ct2.tmp s201.tmp s202.tmp s203.tmp s204.tmp s205.tmp s206.tmp nl.tmp > ch2.tmp

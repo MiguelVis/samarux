@@ -2,12 +2,24 @@ SamaruX
 
 (c) Miguel I. Garcia Lopez / FloppySoftware
 
-www.floppysoftware.es
-cpm-connections.blogspot.com
+http://www.floppysoftware.es
+https://cpm-connections.blogspot.com
 floppysoftware@gmail.com
 
 
-SamaruX v2.06, ?? ??? ????
+SamaruX v2.07, 21 Sep 2021
+==========================
+
+Last changes.
+
+New built-in commands:
+----------------------
+
+expr : Compute simple expressions.
+ps   : Print running commands.
+
+
+SamaruX v2.06, 18 Dec 2016
 ==========================
 
 Last changes.

@@ -1,9 +1,9 @@
 # SamaruX Manual
 #
-# (c) 2015-2018 Miguel I. Garcia Lopez, FloppySoftware, Spain
+# (c) 2007-2021 Miguel I. Garcia Lopez, FloppySoftware, Spain
 #
 # Created:     08 Dec 2014
-# Last edited: 08 Mar 2018
+# Last edited: 20 Sep 2021
 #
 # $NM is NAME
 # $SY is SYNOPSIS
@@ -568,6 +568,33 @@ None.
 $EX
 exit
 # ========
+@expr
+#
+$NM
+expr - Compute simple expressions
+$SY
+expr number1 operator number2
+$DE
+The command expr computes a simple expression and
+outputs the result to the console.
+
+The numbers and the result are 16 bit signed integers,
+from -32,768 to +32,767.
+
+Valid operators are:
+
+add -- add two numbers
+sub -- subtract two numbers
+mul -- multiply two numbers
+div -- divide two numbers
+mod -- remainder after divide two numbers
+$OP
+None.
+$EX
+expr 1 add 3  = Prints 4
+expr 5 add -1 = Prints 4
+expr 5 sub 1  = Prints 4
+# ========
 @false
 #
 $NM
@@ -904,6 +931,19 @@ used to setup your SamaruX environment:
 profile.sx : For interactive mode.
 profcpm.sx : For CP/M mode.
 # ========
+@ps
+#
+$NM
+ps - Print running commands
+$SY
+ps
+$DE
+The command ps prints the running commands.
+$OP
+None.
+$EX
+ps
+# ========
 @pwd
 #
 $NM
@@ -966,9 +1006,9 @@ rm -fi A02:*.bak
 $NM
 SamaruX - Unix-like shell for CP/M systems
 
-(c) 2014, 2015 FloppySoftware, Valencia, Spain
-www.floppysoftware.es
-cpm-connections.blogspot.com
+(c) 2007-2021 FloppySoftware, Valencia, Spain
+http://www.floppysoftware.es
+https://cpm-connections.blogspot.com/
 floppysoftware@gmail.com
 $SY
 samarux [arg ...]
@@ -1144,7 +1184,7 @@ true
 @tty
 #
 $NM
-tty - Return user's terminal name
+tty - Return terminal name
 $SY
 tty
 $DE

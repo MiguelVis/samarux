@@ -1,11 +1,10 @@
 # mk_sect.sx - Make a section for the SamaruX printed manual
 #
-# Last edited: 08 Mar 2015
+# Last edited: 19 Sep 2021
 #
 # Use: batch mk_sect.sx dest_file section_number section_title man_topic
-# Ex.: batch mk_sect.sx sec130.txt '1.30' 'cat - Concatenate files' cat
-#
-echo Making SECTION $2 : $3
+# Ex.: batch mk_sect.sx sec202.txt '2.03' 'File and directory names' files
+# Ex.: batch mk_sect.sx sec130.txt '3.05' '' cat
 #
 if $# eq 4 goto make
 echo Error in # of args.
@@ -13,10 +12,39 @@ goto end
 #
 # make:
 #
-echo '+--------------+' > t1.tmp
-echo '| SECTION' $2 '| ' $3 > t2.tmp
-man $4 > c.tmp
+if $3 eq '' goto make2
+env SECTITLE $3
+goto make3
 #
-cat sectsep.tmp t1.tmp t2.tmp t1.tmp nl.tmp c.tmp > $1
+# make2:
+#
+env SECTITLE $4
+#
+# make3:
+#
+echo Making SECTION $2 : $SECTITLE
+#
+echo -n '           ' $2 ': ' >> toc.tmp
+if $3 eq '' goto cmd
+echo $3 >> toc.tmp
+goto dump
+#
+# cmd:
+#
+env SRCH $4 '- '
+man $4 | grep $SRCH | read RAWTITLE
+batch trim $RAWTITLE '>> toc.tmp'
+env SRCH
+env RAWTITLE
+#
+# dump:
+#
+cat sectsep.tmp > $1
+echo '+--------------+' >> $1
+echo '| SECTION' $2 '| ' $SECTITLE >> $1
+echo '+--------------+' >> $1
+cat nl.tmp >> $1
+man $4 >> $1
+env SECTITLE
 #
 # end:
