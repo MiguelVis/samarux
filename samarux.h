@@ -5,7 +5,7 @@
 
 	SamaruX external commands are PRL files, with a header of 16 bytes.
 
-	Copyright (c) 2015-2016 Miguel I. Garcia Lopez
+	Copyright (c) 2015-2021 Miguel I. Garcia Lopez
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -59,6 +59,7 @@
 	03 Jun 2016 : Updated to SamaruX v2.05.
 	27 Nov 2016 : Updated to SamaruX v2.06.
 	17 Dec 2016 : Added support for rand.h library.
+	12 Sep 2021 : Updated to SamaruX v2.07.
 */
 
 #ifndef SAMARUX_H
@@ -83,10 +84,10 @@
 
 	DEFB 'SamaruX', 0
 	
-	; Version 2.06
+	; Version 2.07
 	
 	DEFB 2
-	DEFB 06
+	DEFB 07
 
 	JP main
 #endasm
@@ -206,9 +207,9 @@ extern int sv_cmd_max;
 //extern WORD sv_cmd_name[SX_MAX_CMD];
 //extern WORD sv_cmd_fun[SX_MAX_CMD];
 
-//extern char *sv_cmd_err;
+extern WORD *sv_run_name;
 
-extern int sv_cmd_exit;
+extern int sv_run_exit;
 
 //extern char sv_ed_buf[SX_LINESIZE];
 

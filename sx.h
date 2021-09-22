@@ -30,6 +30,7 @@
 
 	05 Jun 2016 : Extracted from sx.c.
 	27 Nov 2016 : v2.06.
+	20 Sep 2021 : Add SX_MAX_RUN.
 */
 
 /* SAMARUX DEFINES
@@ -37,10 +38,10 @@
 */
 
 #define SX_VERSION 2
-#define SX_RELEASE 06
-#define SX_APPDATE "18 Dec 2016"
+#define SX_RELEASE 07
+#define SX_APPDATE "21 Sep 2021"
 
-#define SX_COPYRGT "(c) 2015-2016 Miguel Garcia / FloppySoftware"
+#define SX_COPYRGT "(c) 2007-2021 Miguel Garcia / FloppySoftware"
 
 #define SX_PROFILE "profile.sx"  /* Profile for interactive mode */
 #define SX_PROFCPM "profcpm.sx"  /* Profile for CP/M mode */
@@ -63,8 +64,10 @@
 
 #define SX_MAX_ARGS 24  /* Max. # of arguments in the command line */
 
-#define SX_MAX_CMD 43   /* Max. # of built-in commands */
+#define SX_MAX_CMD 46   /* Max. # of built-in commands */
 
 #define SX_MAX_BATCH 10 /* Max. # of batch variables: $0 .. $9 */
 
 #define SX_MAX_DIR 16   /* Max. # of directory names */
+
+#define SX_MAX_RUN 8    /* Max. # of running commands */
