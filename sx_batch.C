@@ -4,7 +4,7 @@
 
 	Execute commands from a text file.
 
-	Copyright (c) 2007 - 2015 Miguel I. Garcia Lopez.
+	Copyright (c) 2007 - 2021 Miguel I. Garcia Lopez.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -44,11 +44,12 @@
 	14 Jun 2016 : 1.08 : Increased BATCH_LINES to 72.
 	19 Jun 2016 : 1.09 : Added BatchShift() for shift command.
 	07 Sep 2021 : 1.10 : Typo in error message.
+	19 Sep 2021 : 1.11 : Set max. number of nexted batch files to 5.
+	20 Sep 2021 : 1.12 : Removed BATCH_MAX.
 */
 
 #define SX_BATCH
 
-#define BATCH_MAX   3      /* Max. number of nexted batch */
 #define BATCH_LINES 72     /* Max. number of lines in batch file */
 #define BATCH_TYPE  ".sx"  /* Default type for file name */
 
@@ -63,10 +64,6 @@ int argc, argv[];
 {
 	int code;
 	int old_argc, *old_argv, *old_ln, old_lines;
-
-	/* Nexted batch? */
-	if(sv_batch == BATCH_MAX)
-		return Error("Too many nexted batch commands");
 
 	/* Check arguments */
 	if(argc < 2 || argc > 11)
@@ -198,7 +195,6 @@ char *fn;
 	return fn;
 }
 
-#undef BATCH_MAX
 #undef BATCH_LINES
 #undef BATCH_TYPE
 
