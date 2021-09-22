@@ -1,0 +1,69 @@
+# --------------------------------------------------- #
+# trim.sx - Trim left and right spaces in the command #
+#           line until we have a proper command.      #
+# --------------------------------------------------- #
+if $# not eq 0 goto start
+#
+# usage:
+#
+echo trim.sx -- trim left and right spaces in the command line
+echo
+echo Usage: trim arg1 .. arg8
+goto end
+#
+# start:
+#
+env P1 ' '
+env P2 ' '
+env P3 ' '
+env P4 ' '
+env P5 ' '
+env P6 ' '
+env P7 ' '
+env P8 ' '
+#
+if $# eq 8 goto p8
+if $# eq 7 goto p7
+if $# eq 6 goto p6
+if $# eq 5 goto p5
+if $# eq 4 goto p4
+if $# eq 3 goto p3
+if $# eq 2 goto p2
+if $# eq 1 goto p1
+goto usage
+#
+# p8:
+env P8 $8
+# p7:
+env P7 $7
+# p6:
+env P6 $6
+# p5:
+env P5 $5
+# p4:
+env P4 $4
+# p3:
+env P3 $3
+# p2:
+env P2 $2
+# p1:
+env P1 $1
+#
+echo echo $P1 $P2 $P3 $P4 $P5 $P6 $P7 $P8 > trim_tmp.sx
+batch trim_tmp.sx
+rm -f trim_tmp.sx
+#
+# clean:
+#
+env P1
+env P2
+env P3
+env P4
+env P5
+env P6
+env P7
+env P8
+#
+# end:
+#
+
