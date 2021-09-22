@@ -5,12 +5,13 @@ call make_ext2 sx_ascii ascii
 call make_ext2 sx_cat cat
 call make_ext2 sx_chmod chmod
 call make_ext2 sx_cp cp
-rem !!! call make_ext2 sx_cpm cpm
+call make_ext2 sx_cpm cpm
 call make_ext2 sx_date date
 call make_ext2 sx_df df
 call make_ext2 sx_diral diralias
 call make_ext2 sx_dump dump
 call make_ext2 sx_ed ed
+call make_ext2 sx_expr expr
 call make_ext2 sx_fortu fortune
 call make_ext2 sx_grep grep
 call make_ext2 sx_head head
@@ -18,6 +19,7 @@ call make_ext2 sx_ls ls
 call make_ext2 sx_man man
 call make_ext2 sx_more more
 call make_ext2 sx_mv mv
+call make_ext2 sx_ps ps
 call make_ext2 sx_rm rm
 call make_ext2 sx_sleep sleep
 call make_ext2 sx_sort sort
@@ -42,13 +44,17 @@ call make_tst df.x
 call make_tst diralias.x
 call make_tst dump.x
 call make_tst ed.x
+call make_tst expr.x
+call make_tst fortune.x
 call make_tst grep.x
 call make_tst head.x
 call make_tst ls.x
 call make_tst man.x
 call make_tst more.x
 call make_tst mv.x
+call make_tst ps.x
 call make_tst rm.x
+call make_tst sleep.x
 call make_tst sort.x
 call make_tst tail.x
 call make_tst tee.x
