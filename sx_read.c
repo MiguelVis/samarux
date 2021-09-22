@@ -5,7 +5,7 @@
 	Read a line from standard input and assign its value
 	to an environment variable.
 
-	Copyright (c) 2007 - 2015 Miguel I. Garcia Lopez.
+	Copyright (c) 2007 - 2021 Miguel I. Garcia Lopez.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -36,11 +36,12 @@
 	Changes:
 
 	20 Jan 2015 : 1.00 : 1st version.
+	19 Sep 2021 : 1.01 : Set max. buffer lenght to 64 chars.
 */
 
 #define SX_READ
 
-#define READ_MAX_LEN 32
+#define READ_MAX_LEN 64
 
 ReadMain(argc, argv)
 int argc, argv[];
