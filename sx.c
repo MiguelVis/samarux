@@ -4,6 +4,10 @@
 	| SamaruX - Unix like shell for CP/M |
 	+------------------------------------+
 	
+	This build configuration has almost every command as external. So it
+	supports external commands. Its main goal is to reduce the TPA
+	needed to run SamaruX. But it needs more disk space.
+	
 	Copyright (c) 2007-2021 Miguel I. Garcia Lopez.
 
 	This program is free software; you can redistribute it and/or modify it
@@ -33,6 +37,7 @@
 	Revisions:
 
 	21 Sep 2021 : Start.
+	11 Oct 2021 : Comment the goal of this build configuration.
 */
 
 /* DEFs FOR SamaruX
