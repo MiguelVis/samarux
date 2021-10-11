@@ -1,5 +1,5 @@
 @echo off
-rem Make the SamaruX shell and the built-in commands.
+rem Make the SamaruX shell and the built-in commands from "sx.c".
 rem Usage: make_sx
 if exist sx.com del sx.com
 if exist sx.zsm del sx.zsm
