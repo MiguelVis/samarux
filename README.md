@@ -33,6 +33,24 @@ This document is not an exhaustive reference of SamaruX, but only an overview, i
 
 Please, refer to the manual for a complete description.
 
+## Builds
+
+SamaruX comes as two flawors:
+- `SX.COM` binary.
+- `SX2.COM` binary.
+
+### SX
+
+This build configuration has almost every command as external. So it
+supports external commands. Its main goal is to reduce the TPA
+needed to run SamaruX. But it needs more disk space.
+
+### SX2
+
+This build configuration has every command as built-in. It does not
+support external commands. Its main goal is to reduce the disk space
+needed to run SamaruX. But it needs a bigger TPA.
+
 ## Named directories
 
 SamaruX has support for named directories.
