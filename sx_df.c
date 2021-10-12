@@ -4,7 +4,7 @@
 
 	Shows free disk space.
 
-	Copyright (c) 2007 - 2015 Miguel I. Garcia Lopez.
+	Copyright (c) 2007 - 2021 Miguel I. Garcia Lopez.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -33,6 +33,7 @@
 
 	07 Jan 2014 : 1.00 : 1st version.
 	29 Nov 2015 : 1.01 : Added support for builtin / external.
+	12 Oct 2021 : 1.02 : Use %u instead of %d when printing the results.
 */
 
 /* Built-in or external
@@ -107,7 +108,7 @@ int drv;
 
 	recs = *p; /* FIXME: We are ignoring the 3rd byte */
 
-	printf("%c: %4d KB (%5d recs.) free\n", 'A' + drv, recs / 8, recs);
+	printf("%c: %4u KB (%5u recs.) free\n", 'A' + drv, recs / 8, recs);
 
 	/* Success */
 
