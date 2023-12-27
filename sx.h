@@ -31,15 +31,17 @@
 	05 Jun 2016 : Extracted from sx.c.
 	27 Nov 2016 : v2.06.
 	20 Sep 2021 : Add SX_MAX_RUN.
+	27 Dec 2023 : v3.00.
 */
 
 /* SAMARUX DEFINES
    ---------------
 */
 
-#define SX_VERSION 2
-#define SX_RELEASE 07
-#define SX_APPDATE "21 Sep 2021"
+#define SX_APPNAME "SamaruX"
+#define SX_VERSION 3  /* Version 3.00 */
+#define SX_RELEASE 0
+#define SX_APPDATE "27 Dec 2023"
 
 #define SX_COPYRGT "(c) 2007-2021 Miguel Garcia / FloppySoftware"
 
@@ -64,7 +66,7 @@
 
 #define SX_MAX_ARGS 24  /* Max. # of arguments in the command line */
 
-#define SX_MAX_CMD 46   /* Max. # of built-in commands */
+#define SX_MAX_CMD 48   /* Max. # of built-in commands */
 
 #define SX_MAX_BATCH 10 /* Max. # of batch variables: $0 .. $9 */
 

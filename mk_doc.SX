@@ -5,9 +5,9 @@
 # Use: batch mk_doc.sx dest_file formfeed version date
 # Ex.: batch mk_doc.sx man130.txt on '1.30' '08 Mar 2015'
 #
-# We need the files mk_cover.txt, mk_ff.txt and mk_toc.txt.
-# If we add new topics to the manual, we need to modify the mk_toc.txt
-# text file and the mk_chap???.sx batch file.
+# We need the files mk_cover.txt and mk_ff.txt.
+# If we add new topics to the manual,
+# we need to modify the mk_chap???.sx batch file.
 #
 if $# eq 4 goto make
 echo Error in # of args.

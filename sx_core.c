@@ -160,6 +160,10 @@
 	20 Sep 2021 : Keep account of running processes. Added RunPush(), RunPop().
 	              Added ps command.
 	21 Sep 2021 : Renamed to sx_core. Add CmdAdd().
+	
+	v3.00
+	
+	27 Dec 2023 : Added type and uname commands, store version data.
 
 	NOTES:
 
@@ -171,6 +175,7 @@
 
 	TO-DO & IDEAS:
 
+	- Join mem and ver commands. See uname also.
 	- Add commands: who, getconf, unalias, dirname, basename, printf.
 	- Add environment variables: PWD - see command cd in POSIX specification.
 	- Implement setenv(), unsetenv(), getenv(), putenv() - see POSIX specification.
@@ -236,6 +241,10 @@
 /* SAMARUX SYSTEM VARIABLES
    ------------------------
 */
+int sv_name;       /* SamaruX name */
+int sv_ver_main;   /* SamaruX main version */
+int sv_ver_seq;    /* SamaruX secondary version */
+char *sv_ver_date; /* SamaruX version date */
 
 int sv_cpmver; /* CP/M version */
 
@@ -400,6 +409,8 @@ int sx_exit_code;     /* exit code */
 
 #ifndef SX_MINIMAL
 #include <sx_tty.c>
+#include <sx_type.c>
+#include <sx_uname.c>
 #include <sx_ver.c>
 #include <sx_wc.c>
 #include <sx_whoam.c>
@@ -420,6 +431,18 @@ int sx_exit_code;     /* exit code */
 main()
 {
 	char *ptr;
+	
+	/* Setup version data */
+	
+	sv_name = SX_APPNAME;
+	sv_ver_main = SX_VERSION;
+	sv_ver_seq = SX_RELEASE;
+	sv_ver_date = SX_APPDATE;
+
+#undef SX_APPNAME
+#undef SX_VERSION
+#undef SX_RELEASE
+#undef SX_APPDATE
 
 	/* Build commands table */
 
@@ -553,6 +576,12 @@ main()
 #ifdef SX_TTY
 	CmdAdd("tty", TtyMain);
 #endif
+#ifdef SX_TYPE
+	CmdAdd("type", TypeMain);
+#endif
+#ifdef SX_UNAME
+	CmdAdd("uname", UnameMain);
+#endif
 #ifdef SX_VER
 	CmdAdd("ver", VerMain);
 #endif
@@ -654,7 +683,7 @@ main()
 	else
 	{
 		/* Interactive mode: execute commands until user quits the shell */
-		printf("SamaruX v%d.%02d / %s\n\n%s\n\n", SX_VERSION, SX_RELEASE, SX_APPDATE, SX_COPYRGT);
+		printf("%s v%d.%02d / %s\n\n%s\n\n", sv_name, sv_ver_main, sv_ver_seq, sv_ver_date, SX_COPYRGT);
 		printf("CP/M v%d.%d\n\n", (sv_cpmver >> 4) & 0x0F, sv_cpmver & 0x0F);
 		printf("%d built-in commands\n\n", sv_cmd_max);
 
@@ -2299,7 +2328,7 @@ char *s;
 
 	i = KeyCount1st(sv_run_name, SX_MAX_RUN);
 
-	fprintf(stderr, "\nERROR [%s]: %s\n", (i ? sv_run_name[i - 1] : "SamaruX"), s);
+	fprintf(stderr, "\nERROR [%s]: %s\n", (i ? sv_run_name[i - 1] : sv_name), s);
 
 	return -1;
 }
@@ -2476,9 +2505,9 @@ char *fn;
 			{
 				/* Check SamaruX header */
 
-				if(strcmp("SamaruX", ptr + 3))
+				if(strcmp(sv_name, ptr + 3))
 					err = Error("Bad header");
-				else if(ptr[11] != SX_VERSION || ptr[12] != SX_RELEASE)
+				else if(ptr[11] != sv_ver_main || ptr[12] != sv_ver_seq)
 					err = Error("Version mismatch");
 				else
 				{
