@@ -43,7 +43,7 @@
 #define SX_RELEASE 0
 #define SX_APPDATE "27 Dec 2023"
 
-#define SX_COPYRGT "(c) 2007-2021 Miguel Garcia / FloppySoftware"
+#define SX_COPYRGT "(c) 2007-2023 Miguel Garcia / FloppySoftware"
 
 #define SX_PROFILE "profile.sx"  /* Profile for interactive mode */
 #define SX_PROFCPM "profcpm.sx"  /* Profile for CP/M mode */
