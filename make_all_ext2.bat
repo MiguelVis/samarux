@@ -27,6 +27,7 @@ call make_ext2 sx_tail tail
 call make_ext2 sx_tee tee
 call make_ext2 sx_tty tty
 call make_ext2 sx_type type
+call make_ext2 sx_uname uname
 call make_ext2 sx_ver ver
 call make_ext2 sx_wc wc
 call make_ext2 sx_whoam whoami
@@ -61,6 +62,7 @@ call make_tst tail.x
 call make_tst tee.x
 call make_tst tty.x
 call make_tst type.x
+call make_tst uname.x
 call make_tst ver.x
 call make_tst wc.x
 call make_tst whoami.x

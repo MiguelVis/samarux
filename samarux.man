@@ -1,9 +1,9 @@
 # SamaruX Manual
 #
-# (c) 2007-2021 Miguel I. Garcia Lopez, FloppySoftware, Spain
+# (c) 2007-2023 Miguel I. Garcia Lopez, FloppySoftware, Spain
 #
 # Created:     08 Dec 2014
-# Last edited: 20 Sep 2021
+# Last edited: 27 Dec 2023
 #
 # $NM is NAME
 # $SY is SYNOPSIS
@@ -1006,9 +1006,10 @@ rm -fi A02:*.bak
 $NM
 SamaruX - Unix-like shell for CP/M systems
 
-(c) 2007-2021 FloppySoftware, Valencia, Spain
+(c) 2007-2023 FloppySoftware, Valencia, Spain
 http://www.floppysoftware.es
 https://cpm-connections.blogspot.com/
+https://github.com/MiguelVis
 floppysoftware@gmail.com
 $SY
 samarux [arg ...]
@@ -1219,6 +1220,29 @@ $OP
 $EX
 type clear
 type -t cp mv ls
+# ========
+@uname
+#
+$NM
+uname - Return system name
+$SY
+uname [-amnrsv]
+$DE
+The command uname writes the system name and some of
+its characteristics.
+
+If no arguments are given, it writes the system name,
+as if the -s option had been specified.
+$OP
+-a  Write the system name and all its characteristics.
+-m  Write the hardware type.
+-n  Write the node.
+-r  Write the release (full version).
+-s  Write the system name.
+-v  Write the version (date).
+$EX
+uname
+uname -srv
 # ========
 @variables
 #

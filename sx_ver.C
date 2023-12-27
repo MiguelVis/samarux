@@ -33,6 +33,7 @@
 	24 Dec 2014 : 1.00 : 1st version.
 	24 Aug 2015 : 1.01 : Print SamaruX version.
 	05 Jun 2016 : 1.02 : Added support for builtin / external.
+	27 Dec 2023 : 1.03 : Use version data.
 */
 
 /* Built-in or external
@@ -63,7 +64,7 @@ int argc, argv[];
 	
 	/* Print SamaruX version */
 	
-	printf("SamaruX v%d.%02d / %s\n\n", SX_VERSION, SX_RELEASE, SX_APPDATE);
+	printf("%s v%d.%02d / %s\n\n", sv_name, sv_ver_main, sv_ver_seq, sv_ver_date);
 
 	/* Get OS type and version */
 

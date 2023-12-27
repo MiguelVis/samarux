@@ -31,7 +31,7 @@ CP/M is a registered trademark of Digital Research Inc.
 Z80 is a registered trademark of Zilog.
 Unix is a registered trademark of The Open Group.
 
-This manual covers SamaruX version 2.07 / 21 Sep 2021
+This manual covers SamaruX version 3.00 / 27 Dec 2023
 
 === oOo ===
 
@@ -90,9 +90,10 @@ CHAPTER 3 : COMMANDS
             3.41 : true - Return true
             3.42 : tty - Return terminal name
             3.43 : type - Print information about command type
-            3.44 : ver - Print SamaruX and CP/M versions and facts
-            3.45 : wc - Count newlines, words and characters
-            3.46 : whoami - Print the user name
+            3.44 : uname - Return system name
+            3.45 : ver - Print SamaruX and CP/M versions and facts
+            3.46 : wc - Count newlines, words and characters
+            3.47 : whoami - Print the user name
 
 === oOo ===
 
@@ -107,9 +108,10 @@ CHAPTER 3 : COMMANDS
 NAME
 	SamaruX - Unix-like shell for CP/M systems
 	
-	(c) 2007-2021 FloppySoftware, Valencia, Spain
+	(c) 2007-2023 FloppySoftware, Valencia, Spain
 	http://www.floppysoftware.es
 	https://cpm-connections.blogspot.com/
+	https://github.com/MiguelVis
 	floppysoftware@gmail.com
 
 SYNOPSIS
@@ -1682,7 +1684,36 @@ EXAMPLES
 	type -t cp mv ls
 
 +--------------+
-| SECTION 3.44 |  ver
+| SECTION 3.44 |  uname
++--------------+
+
+NAME
+	uname - Return system name
+
+SYNOPSIS
+	uname [-amnrsv]
+
+DESCRIPTION
+	The command uname writes the system name and some of
+	its characteristics.
+	
+	If no arguments are given, it writes the system name,
+	as if the -s option had been specified.
+
+OPTIONS
+	-a  Write the system name and all its characteristics.
+	-m  Write the hardware type.
+	-n  Write the node.
+	-r  Write the release (full version).
+	-s  Write the system name.
+	-v  Write the version (date).
+
+EXAMPLES
+	uname
+	uname -srv
+
++--------------+
+| SECTION 3.45 |  ver
 +--------------+
 
 NAME
@@ -1702,7 +1733,7 @@ EXAMPLES
 	ver
 
 +--------------+
-| SECTION 3.45 |  wc
+| SECTION 3.46 |  wc
 +--------------+
 
 NAME
@@ -1734,7 +1765,7 @@ NOTES
 	The CR ('\r') characters will not be counted.
 
 +--------------+
-| SECTION 3.46 |  whoami
+| SECTION 3.47 |  whoami
 +--------------+
 
 NAME
@@ -1752,4 +1783,4 @@ OPTIONS
 EXAMPLES
 	whoami
 
-
+

@@ -60,6 +60,7 @@
 	27 Nov 2016 : Updated to SamaruX v2.06.
 	17 Dec 2016 : Added support for rand.h library.
 	12 Sep 2021 : Updated to SamaruX v2.07.
+	27 Dec 2023 : Updated to SamaruX v2.08.
 */
 
 #ifndef SAMARUX_H
@@ -84,10 +85,10 @@
 
 	DEFB 'SamaruX', 0
 	
-	; Version 2.07
+	; Version 3.00
 	
-	DEFB 2
-	DEFB 07
+	DEFB 3
+	DEFB 0
 
 	JP main
 #endasm
@@ -171,6 +172,11 @@ extern FILE *stdin, *stdout, *stderr;
 */
 
 #include "sx.h"
+
+extern int sv_name;
+extern int sv_ver_main;
+extern int sv_ver_seq;
+extern char *sv_ver_date;
 
 extern int sv_cpmver;
 extern int sv_drive;
