@@ -37,6 +37,7 @@
 
 	20 Jan 2015 : 1.00 : 1st version.
 	19 Sep 2021 : 1.01 : Set max. buffer lenght to 64 chars.
+	30 Dec 2023 : 1.02 : Bugfix when checking maximum length on stdin.
 */
 
 #define SX_READ
