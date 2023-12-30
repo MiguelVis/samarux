@@ -1,21 +1,23 @@
 # mk_doc.sx - Make the SamaruX printed manual
 #
-# Last edited: 19 Sep 2021
+# Last edited: 30 Dec 2023
 #
-# Use: batch mk_doc.sx dest_file formfeed version date
-# Ex.: batch mk_doc.sx man130.txt on '1.30' '08 Mar 2015'
+# Use: batch mk_doc.sx dest_file formfeed
+# Ex.: batch mk_doc.sx manual.txt on
 #
 # We need the files mk_cover.txt and mk_ff.txt.
 # If we add new topics to the manual,
 # we need to modify the mk_chap???.sx batch file.
 #
-if $# eq 4 goto make
+if $# eq 2 goto make
 echo Error in # of args.
 goto end
 #
 # make:
 #
-echo Making MANUAL for Vn. $3 / $4
+uname -r | read SXVERS
+uname -v | read SXDATE
+echo Making MANUAL for Vn. $SXVERS / $SXDATE
 #
 echo > nl.tmp
 cp mk_ff.txt chapsep.tmp
@@ -27,7 +29,9 @@ echo > sectsep.tmp
 #
 # make2:
 #
-batch mk_cover.sx cover.tmp $3 $4
+batch mk_cover.sx cover.tmp $SXVERS $SXDATE
+env SXVERS
+env SXDATE
 batch mk_toc.sx
 batch mk_chap1.sx
 batch mk_chap2.sx
