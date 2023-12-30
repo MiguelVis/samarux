@@ -78,10 +78,13 @@ int argc, argv[];
 		{
 			len = strlen(input);
 
-			if(input[len - 1] != '\n')
-				code = ErrorTooLong();
-			else
+			if(len > 0 && input[len - 1] == '\n')
+			{
 				input[len - 1] = 0;
+			}
+			else if(len == READ_MAX_LEN) {
+				code = ErrorTooLong();
+			}
 		}
 	}
 
