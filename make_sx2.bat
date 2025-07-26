@@ -18,5 +18,5 @@ call make_tst sx2.com
 echo.
 echo Remember to re-build the manual if needed, with:
 echo.
-echo cpm sx2 batch mk_doc.sx dest_file formfeed version date
+echo cpm sx2 batch mk_doc.sx dest_file formfeed
 echo.

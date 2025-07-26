@@ -32,5 +32,5 @@ echo Remember to modify the file samarux.h if needed.
 echo.
 echo Remember to re-build the manual if needed, with:
 echo.
-echo cpm sx batch mk_doc.sx dest_file formfeed version date
+echo cpm sx batch mk_doc.sx dest_file formfeed
 echo.
