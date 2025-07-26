@@ -4,7 +4,7 @@
 
 	Clears the console.
 
-	Copyright (c) 2007 - 2015 Miguel I. Garcia Lopez.
+	Copyright (c) 2007 - 2025 Miguel I. Garcia Lopez.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -37,6 +37,7 @@
 	14 Feb 2015 : 1.04 : Added ASCII support.
 	26 Feb 2015 : 1.05 : Modified ASCII procedure.
 	29 Nov 2015 : 1.06 : Added support for builtin / external.
+	26 Jul 2025 : 1.07 : Added Televideo, ADM-31 / 3A support.
 */
 
 /* Built-in or external
@@ -69,7 +70,7 @@ int argc, argv[];
 
 	if((term = EnvGet("TERM")) != NULL)
 	{
-		if(!strcmp(term, "vt52"))
+		if(!strcmp(term, "vt52")) /* Amstrad PCW, CPC 6128, SAM Coupe, Spectrum +3 */
 		{
 			putch(27);putch('H');putch(27);putch('E');
 		}
@@ -77,6 +78,14 @@ int argc, argv[];
 		{
 			putch(27);putstr("[2J");
 			putch(27);putstr("[1;1H");
+		}
+		else if(!strcmp(term, "televideo")) { /* Apple II */
+			putch(30);
+			putch(27);putch('*');
+		}
+		else if(!strcmp(term, "adm")) /* Commodore 128, Kaypro II (and 4 or 10) */
+		{
+			putch(26);
 		}
 		else if(!strcmp(term, "ascii"))
 		{
