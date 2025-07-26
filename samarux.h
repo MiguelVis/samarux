@@ -61,6 +61,7 @@
 	17 Dec 2016 : Added support for rand.h library.
 	12 Sep 2021 : Updated to SamaruX v2.07.
 	27 Dec 2023 : Updated to SamaruX v2.08.
+	26 Jul 2025 : Updated to SamaruX v3.01.
 */
 
 #ifndef SAMARUX_H
@@ -85,10 +86,10 @@
 
 	DEFB 'SamaruX', 0
 	
-	; Version 3.00
+	; Version 3.01
 	
 	DEFB 3
-	DEFB 0
+	DEFB 1
 
 	JP main
 #endasm

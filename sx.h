@@ -32,6 +32,7 @@
 	27 Nov 2016 : v2.06.
 	20 Sep 2021 : Add SX_MAX_RUN.
 	27 Dec 2023 : v3.00.
+	26 Jul 2025 : v3.01.
 */
 
 /* SAMARUX DEFINES
@@ -39,11 +40,11 @@
 */
 
 #define SX_APPNAME "SamaruX"
-#define SX_VERSION 3  /* Version 3.00 */
-#define SX_RELEASE 0
-#define SX_APPDATE "27 Dec 2023"
+#define SX_VERSION 3  /* Version 3.01 */
+#define SX_RELEASE 1
+#define SX_APPDATE "26 Jul 2025"
 
-#define SX_COPYRGT "(c) 2007-2023 Miguel Garcia / FloppySoftware"
+#define SX_COPYRGT "(c) 2007-2025 Miguel Garcia / FloppySoftware"
 
 #define SX_PROFILE "profile.sx"  /* Profile for interactive mode */
 #define SX_PROFCPM "profcpm.sx"  /* Profile for CP/M mode */
