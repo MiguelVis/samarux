@@ -31,7 +31,7 @@ CP/M is a registered trademark of Digital Research Inc.
 Z80 is a registered trademark of Zilog.
 Unix is a registered trademark of The Open Group.
 
-This manual covers SamaruX version 3.00 / 27 Dec 2023
+This manual covers SamaruX version 3.01 / 26 Jul 2025
 
 === oOo ===
 
@@ -418,11 +418,11 @@ SYNOPSIS
 	Terminal settings
 
 DESCRIPTION
-	The terminal settings can be controlled by following
-	environment variables:
+	The terminal settings can be controlled by the
+	following environment variables:
 	
-	  $TERM    - Terminal name: vt52, vt100 (or ansi),
-	             ascii.
+	  $TERM    - Terminal name: vt52, vt100, ansi,
+	             televideo, adm or ascii.
 	
 	  $LINES   - Terminal rows (> 0 and < 256).
 	
@@ -1783,4 +1783,4 @@ OPTIONS
 EXAMPLES
 	whoami
 
-
+

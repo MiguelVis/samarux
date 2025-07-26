@@ -1,9 +1,9 @@
 # SamaruX Manual
 #
-# (c) 2007-2023 Miguel I. Garcia Lopez, FloppySoftware, Spain
+# (c) 2007-2025 Miguel I. Garcia Lopez, FloppySoftware, Spain
 #
 # Created:     08 Dec 2014
-# Last edited: 27 Dec 2023
+# Last edited: 26 Jul 2025
 #
 # $NM is NAME
 # $SY is SYNOPSIS
@@ -1147,11 +1147,11 @@ Terminal
 $SY
 Terminal settings
 $DE
-The terminal settings can be controlled by following
-environment variables:
+The terminal settings can be controlled by the
+following environment variables:
 
-  $TERM    - Terminal name: vt52, vt100 (or ansi),
-             ascii.
+  $TERM    - Terminal name: vt52, vt100, ansi,
+             televideo, adm or ascii.
 
   $LINES   - Terminal rows (> 0 and < 256).
 
