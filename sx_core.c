@@ -164,6 +164,10 @@
 	v3.00
 	
 	27 Dec 2023 : Added type and uname commands, store version data.
+	
+	v3.01
+	
+	26 Jul 2025 : Added televideo and ADM terminals support in clear.
 
 	NOTES:
 
@@ -176,10 +180,11 @@
 	TO-DO & IDEAS:
 
 	- Join mem and ver commands. See uname also.
-	- Add commands: who, getconf, unalias, dirname, basename, printf.
+	- Add commands: who, getconf, unalias, dirname, basename, printf, logname (and $LOGNAME).
 	- Add environment variables: PWD - see command cd in POSIX specification.
 	- Implement setenv(), unsetenv(), getenv(), putenv() - see POSIX specification.
 	- Add options in compilation time to build for any CP/M, CP/M 2 or CP/M 3.
+	- Add support for daemons.
 */
 
 /* DEFs FOR MESCC
